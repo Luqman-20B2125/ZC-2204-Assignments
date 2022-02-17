@@ -43,8 +43,11 @@ def quickSort(array, low, high, n):
     return array
 
 # Second dependent function, function that is being called is now below the caller
+# Unnecessary spacing in between the lines of code removed
 # Comment why code is used exists
-def partition(array, low, high, n):
+def partition(array, low, high, n): # This function partitions an array,
+                                    # then sorts the smaller values to the left side of partition and bigger to the right side
+                                    # finally return value of where the partition is at
     pivot = array[low]
     i = low
     j = high

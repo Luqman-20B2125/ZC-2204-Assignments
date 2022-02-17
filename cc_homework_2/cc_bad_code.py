@@ -8,19 +8,32 @@ num2 = 11 # This variable contains the number 11 which is the second number of t
 
 # Dependent function far from each other
 # First dependent function, function that is being called is above the one that is calling it
+# There is spacing between the lines of code that are in the same group for no reason making them seem less related
 # No comment telling the reason of using this code or clarifying the meaning of the obscure code
 def partition(array, low, high, n):
+
     pivot = array[low]
+
     i = low
+
     j = high
+
     while i < j:
+
         while i < n and array[i] <= pivot:
+
             i += 1
+
         while j >= 0 and array[j] > pivot:
+
             j -= 1
+
         if i < j:
+
             array[i], array[j] = array[j], array[i]
+
     array[low], array[j] = array[j], array[low]
+
     return j
 
 # To do comment for removing bad or useless code
