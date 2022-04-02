@@ -1,5 +1,6 @@
 # Demonstrate the Creation Method replacement of Constructors
 # Code Refactoring
+# This part is where we have creation methods with same attribute signatures
 class FootballPlayer:
 	
     def __init__(self):
@@ -22,7 +23,8 @@ class FootballPlayer:
     def FootballPlayer(cls, rushingYards):
         cls.rushingYards = rushingYards
 	
-	#Can't do this because the signature must be different
+	# Wouldn't have worked in java, but works in python as python is not strongly typed
+    # but for the sake of the video take it as if it wouldn't work
     
     @classmethod
     def FootballPlayer(cls, receivingYards):
@@ -33,6 +35,7 @@ class FootballPlayer:
 
 # Demonstrate chain constructors
 # Code Refactoring
+# This part is the one where we have constructors which duplicate the same values with only one or two differences
 class FootballPlayer2:
 	
     def __init__(self):

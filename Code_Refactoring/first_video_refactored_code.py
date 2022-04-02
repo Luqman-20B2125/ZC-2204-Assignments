@@ -1,3 +1,4 @@
+# Instead of having multiple constructors have functions that will have the same result as constructors
 class FootballPlayer:
     def __init__(self, passerRating, rushingYards, receivingYards, totalTackles, 
                  interceptions, fieldGoals, avgPunt, avgKickoffReturn, avgPuntReturn):
@@ -35,13 +36,13 @@ print("Aaron Rodgers Passer Rating: ", aaronRodgers.getPasserRating())
 class FootballPlayer2:
 	
     def __init__(self, playerName, college, fortyYardDash, repsBenchPress, sixtyYardDash):
-        self.playerName = ""           
-        self.college = ""           
-        self.fortyYardDash = 0.0        
-        self.repsBenchPress = 0        
-        self.sixtyYardDash = 0.0          
+        self.playerName = playerName         
+        self.college = college          
+        self.fortyYardDash = fortyYardDash       
+        self.repsBenchPress = repsBenchPress        
+        self.sixtyYardDash = sixtyYardDash          
 	
-    def getPlayerNameI(self):
+    def getPlayerName(self):
         return self.playerName
 
     def getCollege(self):
@@ -55,30 +56,19 @@ class FootballPlayer2:
 
     def get60YdDash(self):
         return self.sixtyYardDash	
-	
 
-"""
-	public FootballPlayer2(String playerName, String college, 
-			double fortyYardDash, int repsBenchPress){
+    @classmethod
+    def firstConstructor(cls, playerName, college, fortyYardDash, repsBenchPress):
+        return FootballPlayer2(playerName, college, fortyYardDash, repsBenchPress, 0.0)
+    
+    @classmethod
+    def secondConstructor(cls, playerName, college, fortyYardDash, sixtyYardDash):
+        return FootballPlayer2(playerName, college, fortyYardDash, 0, sixtyYardDash)
 		
-		this(playerName, college, fortyYardDash, repsBenchPress, 0.0);
+jamellFleming = FootballPlayer2.secondConstructor("Jamell Fleming", "Oklahoma", 4.53, 10.75)
 		
-	}
-	
-	public FootballPlayer2(String playerName, String college, 
-			double fortyYardDash, double sixtyYardDash){
-		
-		this(playerName, college, fortyYardDash, 0, sixtyYardDash);
-		
-	}
-	
-	def void main(String[] args){
-		
-		FootballPlayer2 jamellFleming = new FootballPlayer2("Jamell Fleming", "Oklahoma", 4.53, 10.75)
-		
-		System.out.println(jamellFleming.getPlayerName())
-		System.out.println(jamellFleming.getCollege())
-		System.out.println(jamellFleming.get40YdDash())
-		System.out.println(jamellFleming.getRepsBenchPress())
-		System.out.println(jamellFleming.get60YdDash())
-"""
+print(jamellFleming.getPlayerName())
+print(jamellFleming.getCollege())
+print(jamellFleming.get40YdDash())
+print(jamellFleming.getRepsBenchPress())
+
